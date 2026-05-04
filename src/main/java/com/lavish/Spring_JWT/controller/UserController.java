@@ -1,9 +1,9 @@
 package com.lavish.Spring_JWT.controller;
 
 
-import com.lavish.Spring_Security.model.User;
-import com.lavish.Spring_Security.service.JwtService;
-import com.lavish.Spring_Security.service.UserService;
+import com.lavish.Spring_JWT.model.User;
+import com.lavish.Spring_JWT.service.JwtService;
+import com.lavish.Spring_JWT.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

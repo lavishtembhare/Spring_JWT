@@ -1,6 +1,6 @@
 package com.lavish.Spring_JWT.controller;
 
-import com.lavish.Spring_Security.model.Student;
+import com.lavish.Spring_JWT.model.Student;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;

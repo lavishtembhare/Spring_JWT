@@ -1,8 +1,8 @@
 package com.lavish.Spring_JWT.service;
 
 
-import com.lavish.Spring_Security.dao.UserRepo;
-import com.lavish.Spring_Security.model.User;
+import com.lavish.Spring_JWT.dao.UserRepo;
+import com.lavish.Spring_JWT.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
