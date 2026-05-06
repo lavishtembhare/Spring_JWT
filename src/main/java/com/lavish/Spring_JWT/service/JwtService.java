@@ -4,6 +4,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.KeyGenerator;
@@ -44,5 +45,13 @@ public class JwtService {
     public Key getKey(){
         byte[] keyByte= Decoders.BASE64.decode(secretkey);
         return Keys.hmacShaKeyFor(keyByte);
+    }
+
+    public String extractUserName(String token) {
+        return "";
+    }
+
+    public boolean validateToken(String token, UserDetails userDetails) {
+        return true;
     }
 }
