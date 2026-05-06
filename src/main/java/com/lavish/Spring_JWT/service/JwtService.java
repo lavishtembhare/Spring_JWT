@@ -1,5 +1,6 @@
 package com.lavish.Spring_JWT.service;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
@@ -15,6 +16,7 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
 
 @Service
 public class JwtService {
@@ -48,7 +50,19 @@ public class JwtService {
     }
 
     public String extractUserName(String token) {
-        return "";
+        return extractClaim(token, Claims::getSubject);
+    }
+    private <T> T extractClaim(String token, Function<Claims, T> claimResolver){
+        final Claims claims=extractAllClaims(token);
+        return claimResolver.apply(claims);
+    }
+
+    private Claims extractAllClaims(String token) {
+        return Jwts.parser()
+                .verifyWith((SecretKey) getKey())
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
     public boolean validateToken(String token, UserDetails userDetails) {
